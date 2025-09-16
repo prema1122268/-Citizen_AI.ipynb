@@ -1,12 +1,10 @@
-# run this project file in google collab by changing run type to T4 GPU
+
 
 !pip install transformers torch gradio -q
 
 import gradio as gr
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
-
-# Load model and tokenizer
+from transformers import AutoTokenizer, AutoModelForCa 
 model_name = "ibm-granite/granite-3.2-2b-instruct"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(
@@ -44,7 +42,6 @@ def citizen_interaction(query):
     prompt = f"As a government assistant, provide accurate and helpful information about the following citizen query related to public services, government policies, or civic issues:\n\nQuery: {query}\nResponse:"
     return generate_response(prompt, max_length=1000)
 
-# Create Gradio interface
 with gr.Blocks() as app:
     gr.Markdown("# City Analysis & Citizen Services AI")
 
