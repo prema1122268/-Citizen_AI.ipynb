@@ -1,9 +1,12 @@
+# run this project file in google collab by changing run type to T4 GPU
 
 !pip install transformers torch gradio -q
 
 import gradio as gr
 import torch
-from transformers import AutoTokenizer, Automotive
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+# Load model and tokenizer
 model_name = "ibm-granite/granite-3.2-2b-instruct"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(
